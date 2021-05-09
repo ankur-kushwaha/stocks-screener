@@ -48,8 +48,9 @@ app.get('/stocksRecommendation', async (req, res) => {
     res.json(data.data.values)
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
+// })
 
-exports.app = functions.https.onRequest(app);
+// exports.app = functions.https.onRequest(app);
+module.exports = app
