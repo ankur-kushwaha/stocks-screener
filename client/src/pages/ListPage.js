@@ -1,14 +1,17 @@
 import React, { useContext } from 'react'
+import ListContainer from '../components/ListContainer'
+import Menu from '../components/LeftMenu'
+import {useParams} from 'react-router-dom';
+
 import useSheet from '../hooks/useSheet'
 import { AppContext } from '../store'
-import Main from './Main'
-import Sidebar from './Sidebar'
 
-export default function Container() {
+export default function ListPage() {
 
     const {dispatch} = useContext(AppContext);
+    const {getStocksData} = useSheet();   
+    let { recommendType } = useParams();
 
-    const {getStocksData} = useSheet()    
 
     React.useEffect(()=>{
         async function asyncFn(){
@@ -25,12 +28,18 @@ export default function Container() {
         }
         asyncFn()
         
-    },[dispatch,getStocksData]);
+    },[dispatch,recommendType]);
 
     return (
-        <div className="container">
-           <Main></Main>
-           <Sidebar></Sidebar>
+        <div className="list-page">
+            
+            <Menu>
+                    
+            </Menu>
+            
+            <ListContainer>
+                
+            </ListContainer>
         </div>
     )
 }

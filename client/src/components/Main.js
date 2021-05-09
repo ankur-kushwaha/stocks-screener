@@ -1,6 +1,7 @@
 import React from 'react'
 import GaugeChart from 'react-gauge-chart'
 import { AppContext } from '../store'
+import { FiList } from "react-icons/fi";
 
 
 export default function Main() {
@@ -11,15 +12,15 @@ export default function Main() {
         change: "4%",
     }
     let selectedStock = state.stocksList[state.selectedStock];
-    if(!selectedStock){
-        return<></>
+    if (!selectedStock) {
+        return <></>
     }
     let signal = selectedStock?.signal || 'HOLD';
     let config = {
         BUY: {
             guageValue: 0.8,
             color: 'green'
-        },
+        }, 
         HOLD: {
             guageValue: 0.5,
             color: 'yellow'
@@ -30,50 +31,55 @@ export default function Main() {
         }
     }
 
-    let attributes=[{
-        key:"instrument",
-        name:"Instrument"
-    },{
-        key:"signalAge",
-        name:"Age"
+    let attributes = [{
+        key: "instrument",
+        name: "Instrument"
+    }, {
+        key: "signalAge",
+        name: "Age"
     },
     {
-        key:"trend",
-        name:"Trend"
+        key: "trend",
+        name: "Trend"
     },
     {
-        key:"high",
-        name:"High"
+        key: "high",
+        name: "High"
     },
     {
-        key:"low",
-        name:"Low"
+        key: "low",
+        name: "Low"
     },
     {
-        key:"maxChange",
-        name:"Max Change"
+        key: "maxChange",
+        name: "Max Change"
     }]
 
 
     return (
         <div className="main">
-            <div className="title">
-                {data.stockName}
+            <div className="menu">
+                <FiList size={20} color="white"/>
             </div>
-            <GaugeChart
-                colors={['red', 'yellow', 'green']}
-                percent={config[signal].guageValue}
-                hideText
-                needleColor={'white'}
-                id="gauge-chart1" />
+            <div>
+                <div className="title">
+                    {data.stockName}
+                </div>
+                <GaugeChart
+                    colors={['red', 'yellow', 'green']}
+                    percent={config[signal].guageValue}
+                    hideText
+                    needleColor={'white'}
+                    id="gauge-chart1" />
 
-            <div className="gauge-text" style={{ color: config[signal].color }}>
-                {signal}
-            </div>
-            <div className="other-information">
-                {attributes.map(item => (
-                    <Attribute name={item.name} key={item.key} value={selectedStock[item.key]} />
-                ))}
+                <div className="gauge-text" style={{ color: config[signal].color }}>
+                    {signal}
+                </div>
+                <div className="other-information">
+                    {attributes.map(item => (
+                        <Attribute name={item.name} key={item.key} value={selectedStock[item.key]} />
+                    ))}
+                </div>
             </div>
         </div>
     )

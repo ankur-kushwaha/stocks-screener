@@ -1,5 +1,200 @@
+.list-page{
+  display: flex;
+  flex-direction: row;
+  
+}
+
+
+
+.icon{
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.pill{
+  padding:5px 15px;
+  cursor: pointer;
+  color:white;
+  background-color: #000000ad;
+  border-radius: 20px;
+  border: 1px solid #b18484;
+}
+
+.stock-info{
+  color:white;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  .box{
+    align-self: flex-end;
+    width: 300px;
+    //height: 200px;
+    display: inline-block;
+    // background-color: #00000061;
+    .gauge-text{
+      font-size: 30px;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  .info{
+    flex:1;
+    margin-left: 20px;
+  }
+  .stock-code{
+    font-size: 30px;
+  }
+  .other-info{
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    flex-wrap: wrap;
+    .key{
+      width: 200px;
+    }
+    .item{
+      display: flex;
+      border-bottom: 1px solid #00000061;
+      padding: 5px 0;
+      height: 50px;
+      align-items: center;
+      margin-right: 50px;
+    }
+  }
+}
+
+.top-menu{
+  display: flex;
+  margin-top:10px;
+  margin-bottom: 30px;
+  .pill{
+    margin-right: 10px;
+  }
+  flex-direction: row-reverse;
+
+  .upgrade{
+
+  }
+  .profile{
+    
+  }
+}
+
+.left-menu{
+  flex-basis: 200px;
+  color:white;
+  padding:20px;
+  .logo{
+    .title{
+      font-size: 30px;
+      color: white;
+    }
+    margin-bottom: 20px;
+  }
+  .item{
+    a,a:visited{
+      color:white;
+    }
+    cursor: pointer; 
+    list-style-type: none;
+    padding:10px 0;
+    opacity: 0.7;
+    &:hover{
+      opacity: 1;
+    }
+    .icon{
+      margin-right: 5px;
+      vertical-align: middle;
+    }
+  }
+
+}
+.sort-order{
+  text-align: right;
+  padding:30px;
+  padding-bottom: 0;
+  color:white;
+  .item{
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 5px;
+    border:1px solid #00000061;
+    padding:5px;
+    margin-right: 5px;
+  }
+  .icon{
+    margin-left: 5px;
+    vertical-align: middle; 
+  }
+}
+
+.list-container{
+  flex-grow: 1;
+  background: linear-gradient(to bottom, #c42025 0%, #131313 100%);
+  max-height: 800px;
+  section{
+    background-color: #00000061;
+  }
+  
+  section.list-section{
+    padding:30px;
+    max-height: 1000px;
+    overflow-y: auto;
+  }
+  .list-table{
+    color:white;
+    width: 100%;
+  }
+  thead th{
+    border-bottom: 2px solid #00000061;
+  }
+  .header{
+
+  }
+  .list-item{
+    cursor: pointer;
+    // display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    padding:10px;
+    &:hover{
+      background-color: #ffffff30;
+    }
+  }
+  .id,.value{
+    padding:10px
+  }
+  .id{
+    width: 30px;
+    padding-top: 0;
+  }
+  .value{
+    text-align: right;
+    flex-basis: 120px;
+    font-weight: bold;
+  }
+  .subtitle{
+    font-size: 12px;
+  }
+  .buy{
+    color:#25de25;
+  }
+  .sell{
+    color:red;
+  }
+  .name{
+    text-align: left;
+    flex:1
+  }
+}
+
+
+
+
+
+
+
 .container{
-  width: 800px;
+  width: 1000px;
   height: 600px;
   background-color: #3D3D3D;
   border-radius: 20px;
@@ -44,6 +239,15 @@
 .main{
   flex:1;
   padding:40px;
+  display: flex;
+  flex-direction: row;
+  .menu{
+    border-right: 1px solid black;
+    margin-right: 20px;
+    padding-right: 20px;
+    align-self: center;
+    
+  }
   .title{
     font-size: 36px;
     font-weight: bold;
@@ -66,6 +270,7 @@
   // width: 40%;
   .search{
     input{
+      width: 100%;
       border-radius: 15px;
       background-color: transparent;
       margin: 10px 0;
